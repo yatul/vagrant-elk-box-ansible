@@ -18,6 +18,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
 
   config.vm.provider :virtualbox do |vb|
+      vb.name = "elk_test"
       vb.customize ["modifyvm", :id, "--cpus", "2", "--memory", "4096"]
   end
 
