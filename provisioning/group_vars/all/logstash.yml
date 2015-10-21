@@ -5,22 +5,46 @@ logstash_defaults: |
         LS_HEAP_SIZE="256m"
 
 logstash_inputs: |
- file {
-    path => ["/vagrant/include/example-logs/testlog"]
+  file {
+    path => ["/var/log/syslog"]
     start_position => "beginning"
-    codec => "json"
-    type => "json"
+    codec => "plain"
+    type => "system"
+  }
+  file {
+    path => ["/var/log/messages"]
+    start_position => "beginning"
+    codec => "plain"
+    type => "system"
+  }
+  file {
+    path => ["/var/log/auth.log"]
+    start_position => "beginning"
+    codec => "plain"
+    type => "auth"
+  }
+  syslog {
+    facility_labels => ["security/authorization"]
+    type => "auth"
   }
 logstash_filters: |
 
 logstash_outputs: |
- file {
-    path => "/var/log/logstash/output.log"
-    }
- elasticsearch {
-    document_type => "example"
-    host => "127.0.0.1"
-    cluster => "ansible-es"
-    protocol => "http"
-  }
+   if [type] == "auth" {
+     elasticsearch {
+      document_type => "auth"
+      host => "127.0.0.1"
+      cluster => "ansible-es"
+      protocol => "http"
+     }
+    } else {
+      elasticsearch {
+        document_type => "syslog"
+        host => "127.0.0.1"
+        cluster => "ansible-es"
+        protocol => "http"
+      }
+    }   
+ 
+ 
 
