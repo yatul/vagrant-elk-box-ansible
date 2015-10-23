@@ -1,7 +1,7 @@
 Тестовое задание по ELK стеку выполнено на основе https://github.com/comperiosearch/vagrant-elk-box-ansible 
 Изменённые файлы:
 1. Vagrantfile - установлено имя виртуальной машины, для удобства
-2. provisioning/group_vars/all/logstash.yml  - настройки для сбора логов, чтобы в ES попадали системные логи (выбрал syslog и messages) и информация о работе sshd (auth.log). В ES они попадают с разными document_type: system и auth соотвественно.
+2. provisioning/group_vars/all/logstash.yml  - настройки для сбора логов, чтобы в ES попадали системные логи (выбрал syslog и dmesg) и информация о работе sshd (auth.log). В ES они попадают с разными document_type: system и auth соотвественно.
 
 
 Для запуска на машине должен быть установлен свежий Vagrant. Запуск осуществляется с помощью команды vagrant up, после выполнения которой, можно ходить по урлам:

@@ -10,7 +10,7 @@ Other providers, like VMWare may work, not tested!
 This repo uses git submodules.
 To clone the repo, use the --recurse-submodules option.  The submodules contain role definitions and nothing will work without that, unfortunately.  
 
-    git clone --recurse-submodules  https://github.com/comperiosearch/vagrant-elk-box-ansible.git
+    git clone --recurse-submodules  https://github.com/yatul/vagrant-elk-box-ansible.git
 
 If you need to pull in latest changes, please uses
 
@@ -27,13 +27,13 @@ To log in to the machine run:
 
     vagrant ssh
 
-Elasticsearch will be available on the host machine at [http://localhost:9200/](http://localhost:9200/) 
+Elasticsearch will be available on the host machine at [http://localhost:9201/](http://localhost:9201/) 
 
-Kibana at [http://localhost:5601/](http://localhost:5601/)
+Kibana at [http://localhost:5602/](http://localhost:5602/)
 
-Marvel elasticsearch plugin at [http://localhost:9200/_plugin/marvel/](http://localhost:9200/_plugin/marvel/)
+Marvel elasticsearch plugin at [http://localhost:9201/_plugin/marvel/](http://localhost:9201/_plugin/marvel/)
 
-HQ elasticsearch plugin at [http://localhost:9200/_plugin/HQ/](http://localhost:9200/_plugin/HQ/)
+HQ elasticsearch plugin at [http://localhost:9201/_plugin/HQ/](http://localhost:9201/_plugin/HQ/)
 
 
 ## Vagrant commands
