@@ -12,7 +12,7 @@ logstash_inputs: |
     type => "system"
   }
   file {
-    path => ["/var/log/messages"]
+    path => ["/var/log/dmesg"]
     start_position => "beginning"
     codec => "plain"
     type => "system"
@@ -39,7 +39,7 @@ logstash_outputs: |
      }
     } else {
       elasticsearch {
-        document_type => "syslog"
+        document_type => "system"
         host => "127.0.0.1"
         cluster => "ansible-es"
         protocol => "http"
